@@ -1,22 +1,27 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {Component, OnInit, Input, ChangeDetectorRef} from '@angular/core';
 import {ICategory} from '../../shared/models/category.model';
 import {Router} from '@angular/router';
 import {TreeNode} from 'angular-tree-component';
+import {DataService} from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent implements OnInit {
-  @Input() categories: ICategory[] = [];
+  categories: ICategory[];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private data: DataService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
+    this.data.categories.toPromise()
+      .then(categories => this.categories = categories)
+      .then(() => this.cd.markForCheck());
   }
 
   navigate(event: TreeNode) {

@@ -7,6 +7,9 @@ import {NgxsModule} from '@ngxs/store';
 import {ProductState} from './state/product.state';
 import {HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {TreeModule} from 'angular-tree-component';
+import {environment} from '../environments/environment';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NgxsModule.forRoot([
       ProductState
     ]),
-    HttpClientModule
+    HttpClientModule,
+    TreeModule.forRoot(),
+    environment.production ? [] : [NgxsLoggerPluginModule.forRoot()]
   ],
   providers: [],
   bootstrap: [AppComponent]

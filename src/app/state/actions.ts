@@ -1,4 +1,3 @@
-// Products
 import {IProduct} from '../shared/models/product.model';
 
 export class AddProduct {
@@ -7,7 +6,7 @@ export class AddProduct {
 }
 
 export class AddProducts {
-  static readonly type = '[Product] Add';
+  static readonly type = '[Product] Add All';
   constructor(public payload: IProduct[]) {}
 }
 

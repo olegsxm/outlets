@@ -1,11 +1,11 @@
 <aside class="aside">
-  <app-sidebar [categories]="categories"></app-sidebar>
+  <app-sidebar></app-sidebar>
 </aside>
 <main class="main">
   <div class="outlet">
     <router-outlet></router-outlet>
   </div>
-  <div class="outlet">
-    <router-outlet name="product"></router-outlet>
+  <div class="outlet" [hidden]="!outlet.isActivated">
+    <router-outlet name="product" #outlet="outlet"></router-outlet>
   </div>
 </main>

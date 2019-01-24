@@ -26,7 +26,7 @@ export class ProductState {
   @Action(AddProducts)
   addAll({getState, patchState }: StateContext<ProductStateModel>, { payload }: AddProducts) {
     patchState({
-      products: [...payload]
+      products: payload
     });
   }
 
@@ -52,7 +52,7 @@ export class ProductState {
       products: [...getState().products, {
         id,
         name: 'name',
-        categories: [],
+        categories: [10],
         price: 0,
         quantity: 0,
         images: null
