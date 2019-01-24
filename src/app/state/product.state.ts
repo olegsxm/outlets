@@ -1,6 +1,6 @@
 import {IProduct} from '../shared/models/product.model';
 import {Action, Selector, State, StateContext} from '@ngxs/store';
-import {AddProduct, CreateProduct, DeleteProducts, UpdateProduct} from './actions';
+import {AddProduct, AddProducts, CreateProduct, DeleteProducts, UpdateProduct} from './actions';
 
 export class ProductStateModel {
   products: IProduct[];
@@ -21,6 +21,13 @@ export class ProductState {
   @Selector()
   static getProduct(state: ProductStateModel) {
     return (id: number) => state.products.find(product => product.id === id);
+  }
+
+  @Action(AddProducts)
+  addAll({getState, patchState }: StateContext<ProductStateModel>, { payload }: AddProducts) {
+    patchState({
+      products: [...payload]
+    });
   }
 
   @Action(AddProduct)

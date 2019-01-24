@@ -6,6 +6,11 @@ export class AddProduct {
   constructor(public payload: IProduct) {}
 }
 
+export class AddProducts {
+  static readonly type = '[Product] Add';
+  constructor(public payload: IProduct[]) {}
+}
+
 export class UpdateProduct {
   static readonly type = '[Product] Update';
   constructor(public payload: IProduct) {}

@@ -1,0 +1,15 @@
+:host{
+  display: flex;
+  height: 100vh;
+}
+
+.aside{
+  max-width: 250px;
+  flex: 1;
+}
+
+.main{
+  overflow-y: auto;
+  background: #000;
+  flex: 1;
+}
