@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "categories": [1, 2, 3],
+    "name": "Куртка 1 Ж",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 2,
+    "categories": [1, 2, 3],
+    "name": "Куртка 2 Ж",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 3,
+    "categories" : [1, 2, 4],
+    "name": "Ботинки 1 Ж",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 4,
+    "categories" : [1, 2, 4],
+    "name": "Ботинки 2 Ж",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 5,
+    "categories" : [1, 5, 6],
+    "name": "Куртка 1 М",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 6,
+    "categories" : [1, 5, 6],
+    "name": "Куртка 2 М",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 7,
+    "categories" : [1, 5, 7],
+    "name": "Сапоги М",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  },
+  {
+    "id": 8,
+    "categories" : [1, 5, 7],
+    "name": "Сапоги 2 М",
+    "image": "http://www.legioner-shop.ru/images/detailed/18/kurtka-cranford-vintage-industries-chernyy-s.jpg",
+    "price": 100,
+    "quantity": 2
+  }
+]

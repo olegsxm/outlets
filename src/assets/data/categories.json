@@ -1,0 +1,36 @@
+[
+  {
+    "category": 1,
+    "name": "Одежда, обувь, аксессуары",
+    "children" : [
+      {
+        "category": 2,
+        "name": "Женская одежда",
+        "children": [
+          {
+            "category": 3,
+            "name" : "Верхняя одежда"
+          },
+          {
+            "category": 4,
+            "name" : "Обувь"
+          }
+        ]
+      },
+      {
+        "category": 5,
+        "name" : "Мужская одежда",
+        "children": [
+          {
+            "category": 6,
+            "name" : "Верхняя одежда"
+          },
+          {
+            "category": 7,
+            "name" : "Обувь"
+          }
+        ]
+      }
+    ]
+  }
+]
