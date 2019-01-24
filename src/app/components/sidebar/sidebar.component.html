@@ -1,0 +1,5 @@
+<nav class="nav">
+  <div class="nav__tree">
+    <tree-root [nodes]="categories" (activate)="navigate($event.node)"></tree-root>
+  </div>
+</nav>
