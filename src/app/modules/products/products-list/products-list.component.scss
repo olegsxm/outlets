@@ -11,10 +11,13 @@
 .products{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   .product{
+    flex: 1;
     flex-basis: 240px;
     margin: 15px 15px 20px;
+    max-width: 323px;
     background: var(--secondary-color);
 
     &__name{
