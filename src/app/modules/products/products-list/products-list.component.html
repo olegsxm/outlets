@@ -7,12 +7,12 @@
   </button>
 
   <div class="pagination">
-
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>
 
 <div class="products" *ngIf="products.length">
-  <div class="product" *ngFor="let product of products">
+  <div class="product" *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page }">
     <div class="product__name">
       <a [routerLink]="['', {outlets : {'product': [product.id]} }]">{{product.name}}</a>
     </div>

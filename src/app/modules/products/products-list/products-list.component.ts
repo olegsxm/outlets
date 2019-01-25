@@ -19,6 +19,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   storeProducts$;
   resolveProducts$;
   selected: number[] = [];
+  page = 1;
 
   constructor(
     private store: Store,
