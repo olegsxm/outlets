@@ -3,6 +3,7 @@ import {ICategory} from '../../shared/models/category.model';
 import {Router} from '@angular/router';
 import {TreeNode} from 'angular-tree-component';
 import {DataService} from '../../shared/services/data.service';
+import {ThemeService} from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,13 +17,21 @@ export class SidebarComponent implements OnInit {
   constructor(
     private router: Router,
     private data: DataService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private themeService: ThemeService
   ) { }
 
   ngOnInit() {
     this.data.categories.toPromise()
       .then(categories => this.categories = categories)
       .then(() => this.cd.markForCheck());
+  }
+
+  switchTheme(theme: string): void {
+    switch (theme) {
+      case 'light': this.themeService.setLightTheme(); break;
+      case 'dark': this.themeService.setDarkTheme(); break;
+    }
   }
 
   navigate(event: TreeNode) {

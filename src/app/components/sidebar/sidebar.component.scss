@@ -1,7 +1,11 @@
 :host{
+  display: block;
+  height: 100%;
+  background: var(--primary-color);
 }
 
 .burger{
+  padding: 10px;
   &__btn{
     border: none;
     display: block;
@@ -22,9 +26,42 @@
   }
 }
 
+.nav{
+  flex: 1;
+}
+
+.themes{
+  display: flex;
+  background: #ffffff;
+  padding: 10px 0;
+
+  .theme{
+    flex: 1;
+    height: 20px;
+    cursor: pointer;
+
+    &--light{
+      background: #3f51b5;
+    }
+
+    &--dark{
+      background: #9c27b0;
+    }
+  }
+}
+
 .sidebar{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   &.hidden{
     width: 60px;
+
+    .burger{
+      padding: 10px 0 0;
+    }
+
     .nav__tree{
       display: none;
     }
