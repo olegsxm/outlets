@@ -5,7 +5,9 @@
   <div class="outlet">
     <router-outlet></router-outlet>
   </div>
-  <div class="outlet" [hidden]="!outlet.isActivated">
-    <router-outlet name="product" #outlet="outlet"></router-outlet>
+  <div class="outlet" [class.product]="outlet.isActivated" [hidden]="!outlet.isActivated">
+   <div class="outlet_wrapper">
+     <router-outlet name="product" #outlet="outlet"></router-outlet>
+   </div>
   </div>
 </main>

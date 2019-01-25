@@ -14,5 +14,22 @@
 
   .outlet{
     flex: 1;
+
+    &.product{
+      .outlet_wrapper{
+        background: var(--background-color);
+        position: fixed;
+        right: 15px;
+        top: 0;
+
+        @media all and (max-width: 952px){
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
   }
 }

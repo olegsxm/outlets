@@ -1,5 +1,5 @@
-import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
-import {ActivatedRoute, Data} from '@angular/router';
+import {Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef} from '@angular/core';
+import {ActivatedRoute, Data, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -19,7 +19,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private router: Router,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
     this.subscriber$ = this.route.data
       .pipe( map( (data: Data) => data.product))
-      .subscribe(product => this.form.patchValue(product));
+      .subscribe(product => {
+        this.form.reset();
+        this.form.patchValue(product);
+        this.cd.markForCheck();
+      });
   }
 
   convertFile(event) {
@@ -51,5 +57,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriber$.unsubscribe();
+  }
+
+  cancel() {
+    this.router.navigate([{outlets: null}], {relativeTo: this.route.parent});
   }
 }

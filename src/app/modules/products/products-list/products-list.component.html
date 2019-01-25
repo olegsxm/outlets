@@ -1,12 +1,33 @@
 <div class="controls">
   <button (click)="addProduct()">Add product</button>
-  <button *ngIf="products.length">Remove</button>
+  <button *ngIf="products.length"
+          (click)="remove()"
+          [disabled]="selected.length < 1">
+    Remove
+  </button>
+
+  <div class="pagination">
+
+  </div>
 </div>
 
 <div class="products" *ngIf="products.length">
   <div class="product" *ngFor="let product of products">
-    <a [routerLink]="['', {outlets : {'product': [product.id]} }]">{{product.name}}</a>
-    <img [src]="product.image | safe" [alt]="product.name">
+    <div class="product__name">
+      <a [routerLink]="['', {outlets : {'product': [product.id]} }]">{{product.name}}</a>
+    </div>
+    <div class="product__img" [class.selected]="selected.indexOf(product.id) > -1">
+      <img [src]="product.image | safe" [alt]="product.name" (click)="toggleSelected(product)">
+      <div class="check"></div>
+    </div>
+    <div class="product__properties">
+      <div class="product__price">
+        Price: {{product.price}}
+      </div>
+      <div class="product__quantity">
+        Quantity: {{product.quantity}}
+      </div>
+    </div>
   </div>
 </div>
 

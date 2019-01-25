@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {IProduct} from '../../../shared/models/product.model';
 import {AutoUnsubscribe} from 'ngx-auto-unsubscribe';
-import {CreateProduct} from '../../../state/actions';
+import {CreateProduct, DeleteProducts} from '../../../state/actions';
 
 @AutoUnsubscribe()
 @Component({
@@ -18,6 +18,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   category: number;
   storeProducts$;
   resolveProducts$;
+  selected: number[] = [];
 
   constructor(
     private store: Store,
@@ -48,5 +49,19 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+  }
+
+  toggleSelected(product: IProduct) {
+    const index = this.selected.indexOf(product.id);
+    if (index > -1) {
+      this.selected = this.selected.filter(i => i !== product.id);
+    } else {
+      this.selected = [...this.selected, product.id];
+    }
+  }
+
+  remove() {
+    this.store.dispatch(new DeleteProducts(this.selected));
+    this.selected = [];
   }
 }

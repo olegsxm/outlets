@@ -65,7 +65,7 @@ export class ProductState {
   delete({getState, patchState }: StateContext<ProductStateModel>, {payload}: DeleteProducts) {
     const state: IProduct[] = [];
     getState().products.forEach(product => {
-      if (payload.indexOf(product.id) !== -1) {
+      if (payload.indexOf(product.id) === -1) {
         state.push(product);
       }
     });
