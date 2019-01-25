@@ -25,12 +25,13 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    const reg = /^-?(0|[1-9]\d*)?$/;
     this.form = this.fb.group({
       id: [null],
       categories: [],
       image: [null, [Validators.required]],
-      price: [0, [Validators.required, Validators.pattern('^[0-9]*$')]],
-      quantity: [0, [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*$')]],
+      price: [0, [Validators.required, Validators.min(0)]],
+      quantity: [0, [Validators.required, Validators.min(0)]],
       name: ['', [Validators.required, Validators.minLength(3)]]
     });
 

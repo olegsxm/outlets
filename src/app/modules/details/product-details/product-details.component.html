@@ -1,12 +1,26 @@
 <form [formGroup]="form" class="form" (submit)="save()">
   <div class="form-group">
-    <img [src]="form.get('image').value | safe">
+    <img [src]="form.get('image').value | safe" alt="">
     <input type="file" (input)="convertFile($event)">
   </div>
-  <input class="input" placeholder="Название" type="text" formControlName="name">
-  <input class="input" placeholder="цена" type="number" formControlName="price">
-  <input class="input" placeholder="Количество" type="number" formControlName="quantity">
-
+  <div class="form-group">
+    <input class="input" placeholder="Название" type="text" formControlName="name">
+    <span *ngIf="form.get('name').value.length < 3">
+      Min length 3 chars
+    </span>
+  </div>
+  <div class="form-group">
+    <input class="input"  placeholder="цена" step="any" type="number" formControlName="price">
+    <span *ngIf="form.get('price').invalid">
+      This is required field
+    </span>
+  </div>
+  <div class="form-group">
+    <input class="input" placeholder="Количество" type="number" formControlName="quantity">
+    <span *ngIf="form.get('quantity').invalid">
+      This is required field
+    </span>
+  </div>
   <button [disabled]="form.invalid">Сохранить</button>
   <button (click)="cancel()">Отменить</button>
 </form>
