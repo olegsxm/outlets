@@ -6,7 +6,7 @@
     Remove
   </button>
 
-  <div class="pagination">
+  <div class="pagination" *ngIf="products.length">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>
