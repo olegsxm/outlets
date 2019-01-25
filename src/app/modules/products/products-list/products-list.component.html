@@ -1,5 +1,15 @@
-<div class="products">
-  <div class="product" *ngFor="let product of products$ | async">
+<div class="controls">
+  <button (click)="addProduct()">Add product</button>
+  <button *ngIf="products.length">Remove</button>
+</div>
+
+<div class="products" *ngIf="products.length">
+  <div class="product" *ngFor="let product of products">
     <a [routerLink]="['', {outlets : {'product': [product.id]} }]">{{product.name}}</a>
+    <img [src]="product.image | safe" [alt]="product.name">
   </div>
+</div>
+
+<div class="empty" *ngIf="!products.length">
+  Нет товаров
 </div>

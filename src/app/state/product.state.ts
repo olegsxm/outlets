@@ -47,15 +47,16 @@ export class ProductState {
 
   @Action(CreateProduct)
   create({getState, patchState }: StateContext<ProductStateModel>) {
-    const id = ++getState().products.pop().id;
+    const state = getState();
+    const id = getState().products[state.products.length - 1].id + 1;
     patchState({
       products: [...getState().products, {
-        id,
+        id: id,
         name: 'name',
         categories: [10],
         price: 0,
         quantity: 0,
-        images: null
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Empty_set.svg/1024px-Empty_set.svg.png'
       }]
     });
   }

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ChangeDetectorRef} from '@angular/core';
+import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {ICategory} from '../../shared/models/category.model';
 import {Router} from '@angular/router';
 import {TreeNode} from 'angular-tree-component';
@@ -11,6 +11,7 @@ import {DataService} from '../../shared/services/data.service';
 })
 export class SidebarComponent implements OnInit {
   categories: ICategory[];
+  hideSideBar = false;
 
   constructor(
     private router: Router,

@@ -1,5 +1,16 @@
-<nav class="nav">
-  <div class="nav__tree">
-    <tree-root [nodes]="categories" (activate)="navigate($event.node)"></tree-root>
+<div class="sidebar" [class.hidden]="hideSideBar">
+  <div class="burger">
+    <button class="burger__btn">
+      <span class="icon" (click)="hideSideBar = !hideSideBar"></span>
+    </button>
   </div>
-</nav>
+  <nav class="nav">
+    <div class="nav__tree">
+      <tree-root [nodes]="categories" (activate)="navigate($event.node)"></tree-root>
+    </div>
+  </nav>
+  <div class="themes">
+    <div class="theme"></div>
+    <div class="theme"></div>
+  </div>
+</div>

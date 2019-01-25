@@ -2,7 +2,7 @@ export interface IProduct {
   id?: number;
   categories: number[];
   name: string;
-  images: string;
+  image: string;
   price: number;
   quantity: number;
 }

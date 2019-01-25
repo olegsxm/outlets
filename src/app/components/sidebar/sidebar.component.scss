@@ -1,0 +1,35 @@
+:host{
+}
+
+.burger{
+  &__btn{
+    border: none;
+    display: block;
+    background: none;
+    width: 100%;
+    padding: 0;
+    outline: none;
+
+    .icon{
+      background: transparent url("/assets/img/burger.png") no-repeat;
+      display: block;
+      height: 100px;
+      width: 50%;
+      background-size: contain;
+      margin: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+.sidebar{
+  &.hidden{
+    width: 60px;
+    .nav__tree{
+      display: none;
+    }
+    .themes{
+      display: none;
+    }
+  }
+}
